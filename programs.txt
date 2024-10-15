@@ -1,0 +1,112 @@
+#program1
+a=22
+b=33
+if b>a:
+    print("b is greater than a")
+
+a=33
+b=33
+if b>a:
+    print("b is greater than a")
+elif b==a:
+    print("a and b are equal")
+else:
+    print("a is greater than b")    
+
+
+#program2
+    
+i=0
+while i<=5:
+    i=i+1
+    print(i)
+
+
+for num in range(1,11):
+    print(num)
+
+
+#program3
+    
+def my_function():
+    print("Hello from function")
+
+my_function()
+
+def my_function(fname,lname):
+    print(fname+""+lname)
+
+my_function("mohd","arshak")
+
+
+str="python"
+print(str[0:5])
+
+
+#program 4
+
+list1=[1,2,"python",15.9]
+print(list1)
+print(type(list1))
+print(list1[0])
+
+#program5
+
+tuple1=('skasc','For')
+print(tuple1)
+print(type(tuple1))
+
+list1=[1,2,3,4]
+print(tuple(list1))
+
+#program6
+
+dict={"brand":"mahindra","model":"xuv700","year":"2024"}
+print(dict)
+print(dict["brand"])
+
+#program 7
+
+f=open("example.txt","w")
+f.write("hello\n")
+f=open("example.txt","r")
+print(f.read())
+
+#program8
+class invalidageerror(Exception):
+    def _init_(self,age,message="age must be between 0 and 120"):
+        super() ._init_(message)
+        self.age=age
+
+def validate_age(age):
+    if not 0 <= age <= 120:
+        raise invalidageerror(age)
+    print(f"age{age}is valid.")
+
+try:
+    user_age=int(input("enter your age"))
+    validate_age(user_age)
+except invalidageerror as e:
+    print(f"invalidageerror:{e}(given age): {e.age}")
+except ValueError:
+    print("please enter valid age")
+
+#program 9
+
+import pandas as pd
+df=pd.read_csv('filename.csv')
+print(df.head())
+print(df.describe())    
+
+#program 10
+
+import pandas as pd
+data={'name':['alice','bob','charlie'],'age':[25,30,33],
+      'salary':[10000,20000,30000]}
+df=pd.DataFrame(data)
+print(df.iloc[1])
+print(df.loc[1:2,['name','salary']])
+print(df.sort_values(by='salary'))
+print(df.sort_values(by='age',ascending=False))
+print(df['salary'].sum())
+print(df['age'].mean())
